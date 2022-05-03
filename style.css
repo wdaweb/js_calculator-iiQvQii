@@ -1,0 +1,178 @@
+:root {
+  --blue1: rgb(225, 250, 255);
+  --blue2: rgb(150, 255, 250);
+  --bule3: rgba(0, 255, 255, 0.5);
+  --pink1: #fcebfc;
+  ;
+  --pink2: #ffc2ff;
+  --pink3: #ff00f7;
+
+  --orange: rgb(255, 80, 40)
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  /* font-family: 'Fredoka One', cursive; */
+  font-family: 'Varela Round', sans-serif;
+  user-select: none;
+}
+
+/* url('./bg.jpeg') */
+#bg {
+  width: 100%;
+  height: 100vh;
+  background: #111 no-repeat fixed center/cover;
+}
+
+#cal {
+  width: 450px;
+  height: 700px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  /* box-shadow: 0px 0px 1px 1px var(--blue1) inset,
+    0px 0px 3px 3px var(--blue2) inset,
+    0px 0px 5px 5px var(--bule3) inset,
+    0px 0px 1px 1px var(--blue1),
+    0px 0px 3px 3px var(--blue2),
+    0px 0px 5px 5px var(--bule3); */
+  animation: blue-neon 2s linear infinite;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+table {
+  width: 450px;
+  height: 700px;
+
+  border-collapse: collapse;
+}
+
+td {
+  width: 100px;
+  height: 90px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3rem;
+  color: #fee;
+  text-shadow:
+    0 -40px 100px,
+    0 0 2px,
+    0 0 1em #fff,
+    0 0 0.5em #fff,
+    0 0 0.1em #fff,
+    0 5px 3px #000;
+  cursor: pointer;
+  transition: .5s;
+  border-radius: 20px;
+}
+
+td:not(#output):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* 上方顯示區 */
+#output {
+  text-align: right;
+  padding-right: 2rem;
+  font-size: 4rem;
+  border-radius: 30px 30px 0px 0px;
+  height: 120px;
+  /* box-shadow:X Y blur spread color inset; */
+  text-shadow:
+    0 -40px 100px,
+    0 0 2px,
+    0 0 1em #ffd621,
+    0 0 0.5em #ffd621,
+    0 0 0.1em #ffd621,
+    0 5px 3px #000;
+  filter: drop-shadow(0 0 10px rgba(255, 242, 0, 0.3));
+}
+
+#c {
+  color: var(--pink3);
+  animation: neon 2s linear infinite;
+  font-size: 3.5rem;
+
+}
+
+/* 功能鍵 */
+.funcBtn {
+  border-radius: 20px;
+  animation: neon 2s linear infinite;
+  color: var(--pink1);
+  font-size: 3.5rem;
+}
+
+.funcBtn:hover {
+  color: var(--pink3)
+}
+
+#line {
+  width: 400px;
+  height: 5px;
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow:
+    0px 0px 10px 10px var(--bule3);
+}
+
+@keyframes neon {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 1vw var(--pink3),
+      0 0 3vw var(--pink3),
+      0 0 10vw var(--pink3),
+      0 0 10vw var(--pink3),
+      0 0 .4vw #FED128,
+      .3vw .3vw .1vw #2d2d2d;
+    /* color: #fbe1fb; */
+  }
+
+  /* 50% {
+    text-shadow:
+      0 0 .5vw #eb32e8,
+      0 0 1.5vw #eb32e8,
+      0 0 5vw #eb32e8,
+      0 0 5vw #eb32e8,
+      0 0 .2vw #800E0B,
+      .5vw .5vw .1vw #40340A;
+  } */
+}
+
+@keyframes blue-neon {
+
+  0%,
+  100% {
+    box-shadow:
+      0px 0px 1px 1px var(--blue1) inset,
+      0px 0px 3px 3px var(--blue2) inset,
+      0px 0px 5px 5px var(--bule3) inset,
+      0px 0px 1px 1px var(--blue1),
+      0px 0px 3px 3px var(--blue2),
+      0px 0px 5px 5px var(--bule3);
+  }
+
+  50% {
+    box-shadow:
+      0px 0px 1px 1px var(--blue1) inset,
+      0px 0px 3px 5px var(--blue2) inset,
+      0px 0px 10px 10px var(--bule3) inset,
+      0px 0px 1px 1px var(--blue1),
+      0px 0px 3px 5px var(--blue2),
+      0px 0px 10px 10px rgba(0, 255, 255, 0.3);
+  }
+}
