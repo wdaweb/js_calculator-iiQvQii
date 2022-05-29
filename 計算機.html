@@ -7,134 +7,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Varela+Round&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/reset.css">
-  <link rel="stylesheet" href="./style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <div id="bg">
-
-    <!-- <ol> -->
-    <!-- <li>待解決：乘除修改符號後keycode無效</li> -->
-    <!-- <li>待解決：初始值（不可以是+-*/）</li>
-      <li>小數點不可以一直點 - OK</li>
-      <li>點擊音效 當數字是0的時候加減乘除不顯示在output上</li>
-    </ol> -->
+  <div class="container">
+    <div class="box"></div>
     <div id="cal">
-      <div id="line"></div>
-      <table class="neon">
+      <table>
         <tr>
           <td colspan="4" id='output'>0</td>
         </tr>
         <tr>
           <td id="c">c</td>
-          <td class="funcBtn">&#247;</td>
-          <td class="funcBtn">x</td>
-          <td class="funcBtn">-</td>
+          <td style="font-size:2.5rem;">/</td>
+          <td>*</td>
+          <td style="font-size:5rem;">-</td>
         </tr>
         <tr>
-          <td class="numBtn">7</td>
-          <td class="numBtn">8</td>
-          <td class="numBtn">9</td>
-          <td rowspan="2" class="funcBtn">+</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td rowspan="2">+</td>
         </tr>
         <tr>
-          <td class="numBtn">4</td>
-          <td class="numBtn">5</td>
-          <td class="numBtn">6</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
         </tr>
         <tr>
-          <td class="numBtn">1</td>
-          <td class="numBtn">2</td>
-          <td class="numBtn">3</td>
-          <td rowspan="2" class="funcBtn">=</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td rowspan="2">=</td>
         </tr>
         <tr>
-          <td colspan="2" class="numBtn">0</td>
+          <td colspan="2">0</td>
           <td id="decimal">.</td>
         </tr>
       </table>
     </div>
-
   </div>
+  <!-- <ol> -->
+  <!-- <li>待解決：乘除修改符號後keycode無效</li> -->
+  <!-- <li>待解決：初始值（不可以是+-*/）</li>
+      <li>小數點不可以一直點 - OK</li>
+      <li>點擊音效 當數字是0的時候加減乘除不顯示在output上</li>
+    </ol> -->
 
-
-  <script>
-    const output = document.getElementById('output')
-    const numBtns = document.querySelectorAll('.numBtn')
-    const funcBtns = document.querySelectorAll('.funcBtn')
-    const decimal = document.getElementById('decimal')
-    const clearBtn = document.getElementById('c')
-    let memory = 0
-    // 數字0~9
-    for (const numBtn of numBtns) {
-      numBtn.onclick = () => {
-        const numBtnText = numBtn.innerText
-        if (output.innerText === '0') {
-          output.innerText = numBtnText
-        } else {
-          output.innerText += numBtnText
-        }
-        return memory = output.innerText
-      }
-    }
-
-    // 加減乘除、等於
-    for (const funcBtn of funcBtns) {
-      funcBtn.onclick = () => {
-        console.log(funcBtn);
-        const funcBtnText = funcBtn.innerText
-        if (funcBtnText === '+') {
-          // 這裡有問題
-          output.innerText = output.innerText
-          memory += '+'
-        }
-        // console.log(memory);
-
-      }
-    }
-
-    // 小數點
-    decimal.onclick = () => {
-      const deciBtn = decimal.innerText
-      if (output.innerText.includes('.')) {
-        output.innerText = output.innerText
-      } else {
-        output.innerText += deciBtn
-      }
-      return memory = output.innerText
-      // console.log(memory);
-    }
-
-    // 清除
-    clearBtn.onclick = () => {
-      output.innerText = '0'
-      memory = 0
-    }
-
-
-
-    // document.onkeydown = event => {
-    //   if (event.key === 'Enter') {
-    //     output.innerText = eval(output.innerText)
-    //   } else if (
-    //     !isNaN(parseInt(event.key)) ||
-    //     event.key === '+' ||
-    //     event.key === '-' ||
-    //     event.key === '*' ||
-    //     event.key === '/' ||
-    //     event.key === '.' ||
-    //     event.key === 'x' ||
-    //     event.key === 'Backspace'
-    //   ) {
-    //     if (output.innerText === '0') {
-    //       output.innerText = event.key
-    //     } else {
-    //       output.innerText += event.key
-    //     }
-    //   }
-    // }
-  </script>
+  <script src="./script.js"></script>
 </body>
 
 </html>

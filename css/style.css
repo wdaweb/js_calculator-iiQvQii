@@ -1,0 +1,258 @@
+:root {
+  --blue1: rgb(225, 250, 255);
+  --blue2: rgb(150, 255, 250);
+  --blue3: rgb(0, 255, 255);
+  --bule3a: rgba(0, 255, 255, 0.5);
+  --pink1: rgb(252, 235, 252);
+  --pink1a: rgba(252, 235, 252, 0.5);
+  --pink2: rgb(255, 194, 255);
+  --pink3: rgb(255, 0, 247);
+  --pink3a: rgba(255, 0, 247, 0.6);
+  --pink3aa: rgba(255, 0, 247, 0.2);
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  /* font-family: 'Fredoka One', cursive; */
+  font-family: 'Varela Round', sans-serif;
+  user-select: none;
+  background: url('../bg.jpeg') no-repeat center center/cover;
+}
+
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(5, 50, 80, 0.6));
+
+}
+
+/* 框框 */
+.box {
+  position: absolute;
+  top: 5%;
+  width: 280px;
+  height: 90px;
+
+  border: 5px solid var(--pink1);
+  border-radius: 20px;
+  box-shadow:
+    0px 0px 3px 3px var(--pink2),
+    0px 0px 5px 5px var(--pink3),
+    0px 0px 5px 5px rgb(195, 43, 173)inset,
+    0px 0px 12px 12px rgb(112, 39, 160, 0.8) inset,
+    0px 0px 16px 20px rgb(245, 111, 173, 0.5) inset;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(5, 50, 80, 0.7));
+
+  margin: 2rem 3rem 0;
+
+  animation: flicker 1s cubic-bezier(.17, .67, .83, .67) infinite alternate;
+
+}
+
+/* Calculator */
+.box:after {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "Calculator";
+  font-size: 4rem;
+  font-family: 'Neonderthaw', cursive;
+  color: transparent;
+  background: -webkit-linear-gradient(-86deg, #f61067 25%, #5e239d 50%, #00d0a0 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 3px 3px 5px var(--pink3a),
+    1px 1px 8px var(--pink1a);
+  animation: text-flicker 1s cubic-bezier(.17, .67, .83, .67) infinite alternate;
+  z-index: 1;
+
+}
+
+/* 脖子 */
+.box:before {
+  content: '';
+  position: absolute;
+  top: 115%;
+  left: 50%;
+  width: 150px;
+  height: 15px;
+  transform: translate(-50%);
+
+  border: 2px solid var(--pink1a);
+  border-radius: 5px;
+  box-shadow:
+    0px 0px 2px 2px rgba(253, 253, 253, 0.5),
+    0px 0px 5px 5px rgba(255, 255, 255, 0.3)inset;
+  filter: brightness(0.5);
+}
+
+/* 計算機 */
+#cal {
+  width: 430px;
+  height: 620px;
+  border-radius: 30px;
+  border: 5px solid rgb(235, 255, 255);
+
+  position: relative;
+  margin: 0 0 6rem;
+
+  box-shadow:
+    0px 0px 1px 1px var(--blue1) inset,
+    0px 0px 5px 5px var(--blue2) inset,
+    0px 0px 10px 12px var(--bule3a) inset,
+    0px 0px 1px 1px var(--blue1),
+    0px 0px 3px 3px var(--blue2),
+    0px 0px 5px 5px var(--bule3a);
+  z-index: 1;
+  -webkit-box-reflect: below 0 linear-gradient(transparent, transparent 80%, rgba(255, 255, 255, 0.2));
+}
+
+/* 線 */
+#cal::before {
+  content: '';
+  width: 340px;
+  height: 5px;
+  background: var(--blue1);
+  border-radius: 20px;
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: 0px 0px 10px 10px var(--bule3a);
+  filter: brightness(0.6);
+}
+
+table {
+  width: 400px;
+  height: 600px;
+  border-collapse: collapse;
+  margin: auto;
+
+}
+
+td {
+  width: 100px;
+  height: 90px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3rem;
+  color: rgb(240, 255, 255);
+  text-shadow: 0 0 3px #fff,
+    0 0 5px var(--blue2),
+    0 0 10px rgba(80, 250, 250, 0.8),
+    3px 3px 3px #000;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 20px;
+  animation: flicker 1s cubic-bezier(.17, .67, .83, .67) infinite alternate;
+}
+
+td:not(#output):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.2)inset;
+}
+
+/* 上方顯示區 */
+#output {
+  text-align: right;
+  padding-right: 2rem;
+  font-size: 4rem;
+  border-radius: 30px 30px 0px 0px;
+  height: 120px;
+  /* box-shadow:X Y blur spread color inset; */
+  text-shadow: 0 -40px 100px,
+    0 0 2px,
+    0 0 1em #ffd621,
+    0 0 0.5em #ffd621,
+    0 0 0.1em #ffd621,
+    0 5px 3px #000;
+  filter: drop-shadow(0 0 10px rgba(255, 242, 0, 0.3));
+
+
+}
+
+#c {
+  color: var(--pink3);
+  font-size: 3.5rem;
+  text-shadow: 0 0 1vw var(--pink3),
+    0 0 3vw var(--pink3),
+    0 0 10vw var(--pink3),
+    0 0 10vw var(--pink3),
+    0 0 .4vw #FED128,
+    .3vw .3vw .1vw #2d2d2d;
+
+}
+
+/* 功能鍵 */
+.funcBtn {
+  border-radius: 20px;
+  color: var(--pink1);
+  font-size: 3.5rem;
+  text-shadow: 0 0 1vw var(--pink3),
+    0 0 3vw var(--pink3),
+    0 0 10vw var(--pink3),
+    0 0 10vw var(--pink3),
+    0 0 .4vw #FED128,
+    .3vw .3vw .1vw #2d2d2d;
+}
+
+.funcBtn:hover {
+  color: var(--pink3)
+}
+
+@keyframes flicker {
+  20% {
+    opacity: 1;
+  }
+
+  22% {
+    opacity: 0.8;
+  }
+
+  44% {
+    opacity: 1;
+  }
+
+  44.5% {
+    opacity: 0.3;
+  }
+
+  45% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  20% {
+    opacity: 1;
+    color: var(--pink1a);
+  }
+
+  22% {
+    opacity: 0.8;
+  }
+
+  44% {
+    opacity: 1;
+    filter: saturate(150%);
+    color: var(--pink1a);
+  }
+
+  44.5% {
+    opacity: 0.3;
+  }
+
+  45% {
+    opacity: 1;
+    filter: saturate(200%);
+    color: var(--pink1a);
+  }
+}
