@@ -1,9 +1,11 @@
-# 泰山職訓前端班計算機作業
-發揮創意美化你上課完成的計算機，並試著加入更多功能  
 
-- 介紹
+## 設計風格
 設計霓虹風格外觀，包含閃爍動畫效果。
+新增 backspace 、乘除取代掉、初始值不能為運算符號等。
 
-## 注意
-請盡量使用上課教的 GUI 工具或 git 指令繳交作業  
-若使用 GitHub 網頁進行 commit 會依次數扣分
+
+### Preview
+![image](https://github.com/wdaweb/js_calculator-iiQvQii/blob/master/preview.png)
+
+
+# 泰山職訓前端班計算機作業
